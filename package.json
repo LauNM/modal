@@ -1,5 +1,8 @@
 {
-  "name": "npm-modal",
+  "name": "oc-react-modal-lb-2022",
+  "description": "React Modal component",
+  "author": "Laurie Beduneau",
+  "keywords": ["react", "components", "modal"],
   "version": "0.1.0",
   "private": true,
   "dependencies": {
