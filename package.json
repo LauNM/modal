@@ -1,5 +1,5 @@
 {
-  "name": "oc-react-modal-lb-2022",
+  "name": "react-modal-oc-lb",
   "description": "React Modal component",
   "author": "Laurie Beduneau",
   "keywords": [
@@ -7,11 +7,15 @@
     "components",
     "modal"
   ],
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": false,
   "main": "dist/index.js",
   "module": "dist/index.js",
   "files": [ "dist", "README.md" ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LauNM/modal.git"
+  },
   "dependencies": {
     "@babel/polyfill": "^7.12.1",
     "@testing-library/jest-dom": "^5.16.5",
