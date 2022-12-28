@@ -1,68 +1,126 @@
-# React Modal
+# oc-react-modal-lb-2022
 
-## Options
+## Installation
 
-In the project directory, you can run:
+To install, you can use [npm](https://npmjs.org/) or [yarn](https://yarnpkg.com):
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+    $ npm install --save react-modal
+    $ yarn add react-modal
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Documentation
 
-### `npm test`
+``` 
+<Modal />
+```
+### Modal Content
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+``` 
+<Modal>
+    <p>Modal Content</p>
+    <p>Something else to say</p>
+    <button>Click</button>
+</Modal>
+```
 
-### `npm run build`
+### Open modal
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+**isOpen** : *Boolean (required)*
+``` 
+<Modal isOpen=true />
+<Modal isOpen=false />
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Close Modal
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+**hasCloseIcon** : *Boolean (default true)*
+``` 
+<Modal hasCloseIcon=false />
+```
 
-### `npm run eject`
+**closeIcon** : *SVG, component, icon (default SVG)*
+``` 
+<Modal closeIcon={ faUserCircle } />
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+**closeModal** : *Function*
+``` 
+function Component() {
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+    const [displayModal, setDisplayModal] = useState(false);
+    
+    return(
+    
+        <Modal 
+            isOpen={ displayModal }
+            closeModal={ () => setDisplayModal(false) } 
+        />
+        
+    )
+}
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Style
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+**isFullPage** : *Boolean (default false)*
+``` 
+<Modal isFullPage=true />
+```
 
-## Learn More
+**modalBackground**: *String or HEX code* 
+``` 
+<Modal modalBackground="blue" />
+<Modal modalBackground="#4287f5" />
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+**header**: *HTML or Component*
+```
+<Modal header={ <h2>Header Title</h2> } />
+```
+``` 
+const Header = () => {
+  return (
+    <div>
+      <h2>Header Title</h2>
+      <p>Header Subtitle</p>
+    </div>
+  );
+}
+<Modal header={ <Header /> } />
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+**headerBackgroundColor**: *String or HEX code*
+``` 
+<Modal headerBackground="grey" />
+<Modal headerBackground="#b4c0d4" />
+```
+**footer**: *HTML or Component*
+```
+<Modal footer={ <p>This is footer</p> } />
+```
+``` 
+const Footer = () => {
+  return (
+    <div>
+      <p>Footer Text</p>
+      <p>Other Footer Text</p>
+    </div>
+  );
+}
+<Modal footer={ <Footer /> } />
+```
 
-### Code Splitting
+**footerBackgroundColor**: *String or HEX code*
+``` 
+<Modal footerBackgroundColor="grey" />
+<Modal footerBackgroundColor="#b4c0d4" />
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+**divider** : *Boolean (default false) add header and footer divider (only if header and/or footer)*
+``` 
+<Modal 
+    header={ <h2>Header Title</h2> }
+    footer={ <p>This is footer</p> }
+    divider 
+/>
+```
