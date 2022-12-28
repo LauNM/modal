@@ -11,6 +11,8 @@ To install, you can use [npm](https://npmjs.org/) or [yarn](https://yarnpkg.com)
 ## Documentation
 
 ``` 
+import { Modal } from "react-modal-oc-lb"
+
 <Modal />
 ```
 ### Modal Content
