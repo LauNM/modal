@@ -34,13 +34,13 @@ function Modal  (
   const footerStyle = footer ? { backgroundColor: footerBackgroundColor, borderTop: borderDivider } : {};
 
   return (
-    <div className={ `modal-wrapper ${ displayModal } ${ modalSize }` }>
+    <div data-testid="modal-container" className={ `modal-wrapper ${ displayModal } ${ modalSize }` }>
       <div className="modal" style={{ backgroundColor: modalBackground }}>
-        {hasCloseIcon && <span onClick={closeModal} className="close-button">
+        {hasCloseIcon && <span data-testid="close-button" onClick={closeModal} className="close-button">
           {closeIcon ?? <CloseIconDefault /> }
       </span> }
        <header style={ headerStyle }>{ header }</header>
-        { props.children && <div className="modal-main">
+        { props.children && <div data-testid="modal-main" className="modal-main">
           { props.children }
         </div>
         }
