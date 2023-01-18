@@ -7,7 +7,7 @@
     "components",
     "modal"
   ],
-  "version": "0.1.1",
+  "version": "0.1.3",
   "private": false,
   "main": "dist/index.js",
   "module": "dist/index.js",
