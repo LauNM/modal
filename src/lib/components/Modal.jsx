@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import PropTypes from "prop-types";
 import "./style.scss";
 
@@ -10,7 +10,7 @@ const CloseIconDefault = () => {
     </g>
   </svg>);
 }
-function Modal  (
+function Modal (
   {
     isOpen,
     isFullPage= false,
@@ -32,23 +32,27 @@ function Modal  (
   const borderDivider = divider ? "solid 1px black" : "";
   const headerStyle = header ? { backgroundColor: headerBackgroundColor, borderBottom: borderDivider } : {};
   const footerStyle = footer ? { backgroundColor: footerBackgroundColor, borderTop: borderDivider } : {};
+  const modalContainerRef = useRef();
 
-  return (
-    <div role="dialog" aria-labelledby="dialogHeader" aria-describedby="dialogMain" data-testid="modal-container" className={ `modal-wrapper ${ displayModal } ${ modalSize }` }>
-      <div className="modal" style={{ backgroundColor: modalBackground }}>
-        {hasCloseIcon && <span role="button" aria-label="close-button" data-testid="close-button" onClick={closeModal} className="close-button">
-          {closeIcon ?? <CloseIconDefault /> }
-      </span> }
-       <header  id="dialogHeader" style={ headerStyle }>{ header }</header>
+  useEffect(() => {
+    modalContainerRef.current.focus()
+  }, [isOpen])
+  return (<div role="dialog" aria-modal="true" aria-labelledby="dialogHeader" aria-describedby="dialogMain"
+               data-testid="modal-container" className={ `modal-wrapper ${ displayModal } ${ modalSize }` }>
+      <div className="modal" style={ { backgroundColor: modalBackground } }>
+        { hasCloseIcon &&
+          <button ref={ modalContainerRef } data-testid="close-button" onClick={ closeModal } className="close-button">
+            { closeIcon ?? <CloseIconDefault/> }
+          </button> }
+        <header id="dialogHeader" style={ headerStyle }>{ header }</header>
         { props.children && <div id="dialogMain" data-testid="modal-main" className="modal-main">
           { props.children }
-        </div>
-        }
-       <footer style={ footerStyle }>{ footer }</footer>
+        </div> }
+        <footer style={ footerStyle }>{ footer }</footer>
       </div>
-    </div>
-  )
+    </div>)
 }
+
 Modal.propTypes = {
   isOpen: PropTypes.bool.isRequired,
   isFullPage: PropTypes.bool,
