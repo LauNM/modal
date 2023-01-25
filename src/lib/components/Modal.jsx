@@ -35,7 +35,7 @@ function Modal (
   const modalContainerRef = useRef();
 
   useEffect(() => {
-    modalContainerRef.current.focus()
+    modalContainerRef.current?.focus()
   }, [isOpen])
   return (<div role="dialog" aria-modal="true" aria-labelledby="dialogHeader" aria-describedby="dialogMain"
                data-testid="modal-container" className={ `modal-wrapper ${ displayModal } ${ modalSize }` }>

@@ -4,6 +4,7 @@ exports[`modal with content renders correctly 1`] = `
 <div
   aria-describedby="dialogMain"
   aria-labelledby="dialogHeader"
+  aria-modal="true"
   className="modal-wrapper  "
   data-testid="modal-container"
   role="dialog"
@@ -16,11 +17,9 @@ exports[`modal with content renders correctly 1`] = `
       }
     }
   >
-    <span
-      aria-label="close-button"
+    <button
       className="close-button"
       data-testid="close-button"
-      role="button"
     >
       <svg
         fill="currentColor"
@@ -41,7 +40,7 @@ exports[`modal with content renders correctly 1`] = `
           />
         </g>
       </svg>
-    </span>
+    </button>
     <header
       id="dialogHeader"
       style={Object {}}
@@ -71,6 +70,7 @@ exports[`simple modal renders correctly 1`] = `
 <div
   aria-describedby="dialogMain"
   aria-labelledby="dialogHeader"
+  aria-modal="true"
   className="modal-wrapper  "
   data-testid="modal-container"
   role="dialog"
@@ -83,11 +83,9 @@ exports[`simple modal renders correctly 1`] = `
       }
     }
   >
-    <span
-      aria-label="close-button"
+    <button
       className="close-button"
       data-testid="close-button"
-      role="button"
     >
       <svg
         fill="currentColor"
@@ -108,7 +106,7 @@ exports[`simple modal renders correctly 1`] = `
           />
         </g>
       </svg>
-    </span>
+    </button>
     <header
       id="dialogHeader"
       style={Object {}}
